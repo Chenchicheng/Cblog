@@ -47,10 +47,10 @@
         </mvc:resource-chain>
     </mvc:resources>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml" />
         <!--<property name="layoutUrl" value="default/layout/columns_right_sidebar.vm" />-->
-        <property name="layoutKey" value="layout" />
+        <!--<property name="layoutKey" value="layout" />-->
         <property name="cache" value="true" />
         <property name="suffix" value=".vm" />
         <property name="contentType" value="text/html;charset=UTF-8" />
