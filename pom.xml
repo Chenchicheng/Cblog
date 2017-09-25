@@ -133,7 +133,14 @@
             <artifactId>velocity-tools</artifactId>
             <version>2.0</version>
         </dependency>
-  </dependencies>
+
+            <!-- commons -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+            </dependency>
+        </dependencies>
   <build>
     <finalName>cblog</finalName>
   </build>

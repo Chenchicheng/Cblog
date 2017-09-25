@@ -49,7 +49,7 @@
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml" />
-        <!--<property name="layoutUrl" value="default/layout/columns_right_sidebar.vm" />-->
+        <property name="layoutUrl" value="default/layout/columns_right_sidebar.vm" />
         <property name="layoutKey" value="layout" />
         <property name="cache" value="true" />
         <property name="suffix" value=".vm" />
@@ -77,8 +77,8 @@
     </bean>-->
 
     <!-- 配置基础拦截器 -->
-   <!-- <mvc:interceptors>
+    <mvc:interceptors>
         <bean class="cblog.web.interceptor.BaseInterceptor"/>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 
 </beans>
