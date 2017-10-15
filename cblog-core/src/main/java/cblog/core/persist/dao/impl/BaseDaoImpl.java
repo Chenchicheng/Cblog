@@ -88,6 +88,29 @@ public class  BaseDaoImpl<T> extends  GenericDaoImpl implements BaseDao<T> {
         return criteria;
     }
     /**
+     * 按Criteria查询对象列表.
+     *
+     * @param criterions 数量可变的Criterion.
+     * @return 持久队列集合
+     */
+    @SuppressWarnings("unchecked")
+    protected List<T> find(final Criterion... criterions) {
+        return createCriteria(criterions).list();
+    }
+
+    /**
+     * 按属性查找对象列表, 匹配方式为相等.
+     *
+     * @param propertyName 键
+     * @param value 值
+     * @return 持久队列集合
+     */
+    protected List<T> findBy(final String propertyName, final Object value) {
+        Assert.hasText(propertyName, "propertyName不能为空");
+        Criterion criterion = Restrictions.eq(propertyName, value);
+        return find(criterion);
+    }
+    /**
      * 按属性查找唯一对象, 匹配方式为相等.
      *
      * @param propertyName 键
