@@ -21,7 +21,6 @@ public class UserController {
     @RequestMapping(value = "/user")
     @ResponseBody
     public User getUser() {
-
        return userService.getUserById(2);
     }
 }

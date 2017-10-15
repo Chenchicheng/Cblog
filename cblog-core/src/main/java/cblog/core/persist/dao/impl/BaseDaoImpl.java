@@ -3,6 +3,8 @@ package cblog.core.persist.dao.impl;
 import cblog.annotation.Repository;
 import cblog.core.persist.dao.BaseDao;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.util.Assert;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +18,7 @@ import java.util.List;
  * 持久层基类，通过泛型指定实体类
  * @param <T> 实体类
  */
-public class BaseDaoImpl<T> extends  GenericDaoImpl implements BaseDao<T> {
+public class  BaseDaoImpl<T> extends  GenericDaoImpl implements BaseDao<T> {
 
 
     /**
@@ -71,4 +73,32 @@ public class BaseDaoImpl<T> extends  GenericDaoImpl implements BaseDao<T> {
     public List<T> list() {
         return createCriteria().list();
     }
+    /**
+     * 根据Criterion条件创建Criteria.
+     * 与find()函数可进行更加灵活的操作.
+     *
+     * @param criterions 数量可变的Criterion.
+     * @return Criteria
+     */
+    protected Criteria createCriteria(final Criterion... criterions) {
+        Criteria criteria = session().createCriteria(entityClass);
+        for (Criterion c : criterions) {
+            criteria.add(c);
+        }
+        return criteria;
+    }
+    /**
+     * 按属性查找唯一对象, 匹配方式为相等.
+     *
+     * @param propertyName 键
+     * @param value 值
+     * @return 实体对象
+     */
+    @SuppressWarnings("unchecked")
+    protected T findUniqueBy(final String propertyName, final Object value) {
+        Assert.hasText(propertyName, "propertyName不能为空");
+        Criterion criterion = Restrictions.eq(propertyName, value);
+        return (T) createCriteria(criterion).uniqueResult();
+    }
+
 }

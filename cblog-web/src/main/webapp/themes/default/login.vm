@@ -1,3 +1,0 @@
-#set( $iAmVariable = "hello velocity！" )
-
-$iAmVariable

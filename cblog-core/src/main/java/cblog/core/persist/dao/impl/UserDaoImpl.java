@@ -15,4 +15,8 @@ public class UserDaoImpl extends BaseDaoImpl<UserPO> implements UserDao {
     public UserPO getUserById(long id) {
         return get(id);
     }
+    @Override
+    public UserPO getUserByUsername(String username) {
+      return findUniqueBy("username", username);
+    }
 }

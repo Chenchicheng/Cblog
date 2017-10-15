@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 基础拦截器 - 向 request 中添加一些基础变量
- *
- * Created by chenchicheng on 17-9-25.
+ * Created by asus on 17-10-12.
  */
 public class BaseInterceptor extends HandlerInterceptorAdapter {
 
@@ -41,5 +39,4 @@ public class BaseInterceptor extends HandlerInterceptorAdapter {
         super.afterConcurrentHandlingStarted(request, response, handler);
         interceptorHookManager.afterConcurrentHandlingStarted(request, response, handler);
     }
-
 }

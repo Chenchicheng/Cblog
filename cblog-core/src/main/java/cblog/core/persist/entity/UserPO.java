@@ -59,6 +59,16 @@ public class UserPO {
     @Column(name = "active_email")
     private int activeEmail; // 邮箱激活状态
     private int status; // 用户状态
+    @Column(name = "role_id")
+    private int role_id;//角色id
+
+    public int getRole_id() {
+        return role_id;
+    }
+
+    public void setRole_id(int role_id) {
+        this.role_id = role_id;
+    }
 
     public long getId() {
         return id;
