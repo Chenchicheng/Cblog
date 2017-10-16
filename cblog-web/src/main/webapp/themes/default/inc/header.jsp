@@ -1,5 +1,6 @@
 <!-- Login dialog BEGIN -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <div id="loginalert" style="display: none; top: 0px;" class="fade in">
@@ -115,9 +116,9 @@
     		                	</a>
     		               	</li>
     		                <li class="divider"></li>
-							    <c:if test="${shrio}.hasPermission('admin')">
+                                 <shiro:hasPermission name="admin">
 								<li><a href="${base}/admin">后台管理</a></li>
-                                </c:if>
+                                 </shiro:hasPermission>
 							
     		                <li><a href="${base}/logout">退出</a></li>
     		              </ul>

@@ -1,6 +1,6 @@
 package cblog.web.listener;
 
-import cblog.core.data.Group;
+
 import cblog.core.persist.service.GroupService;
 import cblog.core.persist.service.MenuService;
 import org.springframework.beans.factory.InitializingBean;
@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.ServletContextAware;
 
 import javax.servlet.ServletContext;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by asus on 17-10-15.
